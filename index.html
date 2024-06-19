@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Kids These Days</title>
+    <style type="text/css">
+        body {
+            background: hsl(50, 5%, 90%);
+            color: hsl(50, 5%, 5%);
+            font-family: sans-serif;
+            font-size: 120%;
+        }
+
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: hsl(60, 2%, 95%);
+            border: 1px solid #333;
+            border-radius: 10px;
+        }
+
+        dl {
+            display: flex;
+            flex-flow: row wrap;
+            border: solid #333;
+            border-width: 1px 1px 0 0;
+        }
+
+        dt {
+            flex-basis: 20%;
+            padding: 12px 12px;
+            background: #333;
+            text-align: right;
+            color: #fff;
+        }
+
+        dd {
+            flex-basis: 70%;
+            flex-grow: 1;
+            margin: 0;
+            padding: 12px 12px;
+            border-bottom: 1px solid #333;
+        }
+    </style>
+</head>
+<body>
+<h1>Kids These Days</h1>
+<article>
+    <dl>
+        <dt>Boomers</dt>
+        <dd id="boomers">1946 to 1964</dd>
+        <dt>Gen X</dt>
+        <dd id="genx">1965 to 1980</dd>
+        <dt>Millenials</dt>
+        <dd id="millenials">1981 to 1996</dd>
+        <dt>Gen Z</dt>
+        <dd id="genz">1997 to 2012</dd>
+        <dt>Gen Alpha</dt>
+        <dd id="gena">2013 to now</dd>
+    </dl>
+</article>
+</body>
+
+<script type="application/javascript">
+    const now = new Date()
+    const currentYear = now.getFullYear()
+    const data = {
+        boomers: {
+            old: 1946,
+            young: 1964,
+        }, genx: {
+            old: 1965,
+            young: 1980,
+        }, millenials: {
+            old: 1981,
+            young: 1996,
+        }, genz: {
+            old: 1997,
+            young: 2012,
+        }, gena: {
+            old: 2013,
+            young: currentYear,
+        },
+    }
+
+    for (let key in data) {
+        let oldYears = currentYear - data[key].old
+        let youngYears = currentYear - data[key].young
+
+        document.getElementById(key).innerText = `${youngYears} to ${oldYears}`
+    }
+</script>
+</html>
